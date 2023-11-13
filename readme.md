@@ -13,4 +13,13 @@ This repo contains the Nomad E-commerce store API server project files.
    AWS_SECRET_ACCESS_KEY
    AWS_DEFAULT_REGION
 ```
-- Configuring how to trigger a build
+- Configuring how to trigger a build, making changes to the `ci.yml` file
+- We will have the following Pipeline Jobs:
+![Pipeline](./images/PipelineJobs.png "Pipeline Jobs")
+- For the API test stage we are going to run the script in `calculate.js` using `mocha` that is defined in the `package.json` file as an script.
+- The next stage is to build our docker image and push it to DockerHub
+- The third stage will be to build a AWS AMI from ubuntu base image using `Packer`
+- The next stage is to Deploy to Stage, executing a set of terraform commands/config inside of the terraform folder taking the AWS AMI created in previous stage
+- Once everything was fine to Stage the next stage is to deploy to PRODUCTION
+
+## API TEST
