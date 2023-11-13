@@ -23,3 +23,7 @@ This repo contains the Nomad E-commerce store API server project files.
 - Once everything was fine to Stage the next stage is to deploy to PRODUCTION
 
 ## API TEST
+- We modify the ci.yml file to add the test job to test the apis 
+- We are using some Actions from Github to speed things up for our CI 
+- Once we push the changes to github it will trigger the build, move to github and go to Actions you will see the steps that it took to execute the job.
+- 
