@@ -15,3 +15,19 @@ on:
    pull_request:
       branches:
          - master
+jobs: 
+   test: 
+      name: Run api tests with Mocha
+      runs-on: ubuntu-latest
+      steps: 
+         # This is going to check out our repo as it is 
+         - uses: actions/checkout@v2
+         # Specifying a human friendly name 
+         - name: Use Node.js 16
+         # Using another action setup-node to have node installed in the VM
+           uses: actions/setup-node@v2
+           with: 
+            node-version: '16'
+         # We can execute commands using 'run' also we can actually run bash commands, execute commands to install software, to delete files and so on.
+         - run: npm ci
+         - run: npm test
