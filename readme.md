@@ -13,4 +13,4 @@ This repo contains the Nomad E-commerce store API server project files.
    AWS_SECRET_ACCESS_KEY
    AWS_DEFAULT_REGION
 ```
-- 
+- Configuring how to trigger a build
