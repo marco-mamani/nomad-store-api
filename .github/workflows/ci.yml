@@ -33,7 +33,7 @@ jobs:
          - run: npm test
    build-and-push-docker-image:
       name: Build and push docker image
-      runs-on: ubuntu_latest
+      runs-on: ubuntu-latest
       # Precondition to run the build-and-push-docker-image job
       # if for some reason test job fails this job or subsequent jobs aren't going to run
       needs: test
