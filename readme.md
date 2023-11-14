@@ -33,4 +33,9 @@ This repo contains the Nomad E-commerce store API server project files.
 ## Build AWS AMI Job
 - Adding the job to build the AWS AMI job using Packer which will use docker image from dockerhub
 
+## Now we need to provision some resources for the following architecture
+![Architecture](./images/ArchitectureApp.png "App Architecture")
+- The the consumers of our API would be a user or a react app, that would be accessing this particular API, so the way they access that is going to be via a load balancer that sits in front of the users and any applications that are going to be accessing this particular API. And the load balancer will be replicated in each availability zone, so for that we are going to create our own VPC (previously we used the default VPC.) and we'll be deploying subnets in each availability zone and within each subnet we're going to have the automated scaling group and then we're going to have each EC2 instance that is going to be running. So this basically refers to the PRODUCTION setup that means at most we're going to have ten EC2 instances that are going to be serving the requests that are going to be coming in from the load balancer. 
+
+
 Doc Reference: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions 
