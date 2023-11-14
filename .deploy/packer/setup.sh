@@ -25,5 +25,5 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 sudo docker run hello-world
 # login to docker and pull down image
 sudo docker login --username $USERNAME --password $PASSWORD
-sudo docker pull cagarweyne/nomad  
+sudo docker pull markin0s/nomad  
 

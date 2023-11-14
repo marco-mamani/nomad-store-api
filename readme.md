@@ -22,11 +22,15 @@ This repo contains the Nomad E-commerce store API server project files.
 - The next stage is to Deploy to Stage, executing a set of terraform commands/config inside of the terraform folder taking the AWS AMI created in previous stage
 - Once everything was fine to Stage the next stage is to deploy to PRODUCTION
 
-## API TEST
+## API Test Job
 - We modify the ci.yml file to add the test job to test the apis 
 - We are using some Actions from Github to speed things up for our CI 
 - Once we push the changes to github it will trigger the build, move to github and go to Actions you will see the steps that it took to execute the job.
 
-## Build docker Image
-- Adding the job in the `ci.yml` file for the builf docker image stage
-- 
+## Build docker Image Job
+- Adding the job in the `ci.yml` file for the build docker image stage
+
+## Build AWS AMI Job
+- Adding the job to build the AWS AMI job using Packer which will use docker image from dockerhub
+
+Doc Reference: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions 
