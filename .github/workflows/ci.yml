@@ -31,3 +31,20 @@ jobs:
          # We can execute commands using 'run' also we can actually run bash commands, execute commands to install software, to delete files and so on.
          - run: npm ci
          - run: npm test
+   build-and-push-docker-image:
+      name: Build and push docker image
+      runs-on: ubuntu_latest
+      # Precondition to run the build-and-push-docker-image job
+      # if for some reason test job fails this job or subsequent jobs aren't going to run
+      needs: test
+      # the environment that we want this job to run agains and use any particular secrets
+      environment: nomad-stage
+      # condition to check if current branch is master branch, it is needed because we only want to build the image
+      # from the code that is on the master branch only unless we want to specifically test that branch on a deployment
+      # in which case we can add a separate config for that
+      if: github.ref == 'refs/heads/master'
+      steps: 
+         - uses: action/checkout@v2
+         - run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
+         - run: docker build -t markin0s/nomad .
+         - run: docker push markin0s/nomad 
